@@ -22,7 +22,7 @@ class Reviews extends Component {
 
     componentDidMount(){
         window.scroll(0,0);
-        axios.post('http://localhost:5000/reviews/getReview',{logo:this.props.Name})
+        axios.post('routes/reviews/getReview',{logo:this.props.Name})
         .then((response)=>{
             this.setState({reviewList:response.data},()=>{
                 console.log(this.state.reviewList);

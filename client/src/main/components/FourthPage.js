@@ -69,21 +69,21 @@ class FourthPage extends Component{
         }
 
         else{
-          let fullnameExist =  await axios.post('http://localhost:5000/users/getFullName',{fullname:FullName});
+          let fullnameExist =  await axios.post('routes/users/getFullName',{fullname:FullName});
           if(fullnameExist.data.length>0){
               console.log(fullnameExist.data);
             this.setState({errorMsg:'This Full Name already exist-Login with your username/Password!',color:'red'},()=>{
                 console.log(this.state.errorMsg);  
             }); 
           }else{
-            let memberIDExist =  await axios.post('http://localhost:5000/users/getMemberID',{memberID:MemberID}); 
+            let memberIDExist =  await axios.post('routes/users/getMemberID',{memberID:MemberID}); 
             if(memberIDExist.data.length>0){
                 console.log(memberIDExist.data);
                 this.setState({errorMsg:'This EVSA Member ID already exist-Login with your username/Password!',color:'red'},()=>{
                     console.log(this.state.errorMsg);  
                 });  
           }else{
-            let usernameExist =  await axios.post('http://localhost:5000/users/getUserName',{username:UserName}); 
+            let usernameExist =  await axios.post('routes/users/getUserName',{username:UserName}); 
             if(usernameExist.data.length>0){
                 console.log(usernameExist.data);
                 this.setState({errorMsg:'This Username already exist-Login with your username/Password!',color:'red'},()=>{
@@ -93,7 +93,7 @@ class FourthPage extends Component{
 
             this.setState({errorMsg:''});
         console.log('adding user');
-        let response = await axios.post('http://localhost:5000/users/addUser',{FullName:FullName,MemberID:MemberID, UserName:UserName,Password:Password});
+        let response = await axios.post('routes/users/addUser',{FullName:FullName,MemberID:MemberID, UserName:UserName,Password:Password});
        console.log(response.data);
        let res = response.data;
         if(res.includes('Account Created!')){
