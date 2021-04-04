@@ -1,0 +1,11 @@
+/** @format */
+
+.Nav Nav.Link {
+	font-size: 35px;
+}
+
+@media print {
+	.Nav Nav.Link {
+		display: "none";
+	}
+}
