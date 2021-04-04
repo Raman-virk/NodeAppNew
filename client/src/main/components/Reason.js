@@ -36,7 +36,7 @@ class Reason extends Component {
 
     componentDidMount(){
         window.scroll(0,0);
-        axios.post('routes/reviews/getReview',{logo:this.props.Name})
+        axios.post('/routes/reviews/getReview',{logo:this.props.Name})
         .then((response)=>{
             this.setState({reviewList:response.data},()=>{
                 console.log(this.state.reviewList);
@@ -70,14 +70,14 @@ class Reason extends Component {
                 console.log(this.state.errorMsg);
             });
         console.log(this.props.Name);
-        let response =  await axios.post('routes/reviews/addReview',{Logo:this.state.logoName, Location:this.state.selectedLocation,Light:this.state.selectedLight,Reason:reasonValue,Username: this.state.User});
+        let response =  await axios.post('/reviews/addReview',{Logo:this.state.logoName, Location:this.state.selectedLocation,Light:this.state.selectedLight,Reason:reasonValue,Username: this.state.User});
             console.log(response.data);
             this.setState({errorMsg:'Review Saved!', color:'black'});
             document.getElementById('reasonArea').value='';
             this.noColor();
             this.setState({selectedLight:'',bgcolor1:'',bgcolor2:'',bgcolor3:'',bgcolor4:'',selectedLocation:''},()=>{
                 console.log('all reset');
-                axios.post('routes/reviews/getReview',{logo:this.props.Name})
+                axios.post('/reviews/getReview',{logo:this.props.Name})
                 .then((response)=>{
                     this.setState({reviewList:response.data},()=>{
                         console.log(this.state.reviewList);

@@ -71,7 +71,7 @@ color:''
         else{
             this.setState({errorMsg:''});
             console.log('adding user');
-            let response = await axios.post('routes/users/changePassword',{fullname:FullName,memberID:MemberID});
+            let response = await axios.post('/users/changePassword',{fullname:FullName,memberID:MemberID});
            console.log(response.data);
            let res = response.data;
             if(res.length==0){
@@ -79,7 +79,7 @@ color:''
            }else{
                console.log(res[0]._id);
                let newid = res[0]._id;
-            let updated = await axios.post('routes/users/updatePassword',{id:newid,newpassword:Password});    
+            let updated = await axios.post('/users/updatePassword',{id:newid,newpassword:Password});    
             console.log(updated.data);
             this.setState({errorMsg:'Password changed!',color:'green'});  
             document.getElementById('passwordUsername').value="";

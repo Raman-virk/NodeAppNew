@@ -58,7 +58,7 @@ showMainPage: true
         else{
             this.setState({errorMsg:''});
         console.log('getting user');
-        let response = await axios.post('routes/users/getUser',{username:UserName,password:Password});
+        let response = await axios.post('/users/getUser',{username:UserName,password:Password});
        console.log(response.data);
        let res = response.data;
         if(res.length==0){
