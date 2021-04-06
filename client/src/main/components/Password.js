@@ -18,6 +18,7 @@ showPageBack:false,
 showPassword:false,
 refFullName: null,
 refMemberID: null,
+refNewUsername:null,
 refNewPassword: null,
 errorMsg:'',
 color:''
@@ -27,6 +28,7 @@ color:''
         document.getElementById('passwordUsername').value="";
         document.getElementById('passwordMembership').value="";
         document.getElementById('passwordNewPassword').value="";
+        document.getElementById('usernameNewUsername').value="";
         this.setState({errorMsg:''});
 
     }
@@ -34,12 +36,13 @@ color:''
     authenticate = async() =>{
         var FullName = this.state.refFullName.value;
         var MemberID = this.state.refMemberID.value;
+        var Username = this.state.refNewUsername.value;
         var Password = this.state.refNewPassword.value;
         let  check= /^\w+$/;
         let checkNo= /[0-9]/;
         let checkapt = /[a-z]/;
         let checkAph = /[A-Z]/;
-        if(FullName==""||MemberID==""||Password==""){
+        if(FullName==""||MemberID==""||Username==""||Password==""){
             this.setState({errorMsg:'Enter all the three values to change the password!',color:'red'},()=>{
                 console.log(this.state.errorMsg);
             });
@@ -79,12 +82,13 @@ color:''
            }else{
                console.log(res[0]._id);
                let newid = res[0]._id;
-            let updated = await axios.post('/users/updatePassword',{id:newid,newpassword:Password});    
+            let updated = await axios.post('/users/updatePassword',{id:newid,newpassword:Password,newusername:Username});    
             console.log(updated.data);
-            this.setState({errorMsg:'Password changed!',color:'green'});  
+            this.setState({errorMsg:'Credentials changed!',color:'green'});  
             document.getElementById('passwordUsername').value="";
             document.getElementById('passwordMembership').value="";
             document.getElementById('passwordNewPassword').value="";
+            document.getElementById('usernameNewUsername').value="";
            }
             console.log(response);
             console.log('user added');
@@ -128,7 +132,7 @@ color:''
                   <tr>
          <td> Enter Full Name </td><td>  <input type="text" defaultValue="" id="passwordUsername" autoComplete="off" ref={el => this.state.refFullName = el}/></td></tr>
          <tr><td>   EVSA Membership #  </td><td> <input type="text" defaultValue=""  id="passwordMembership" autoComplete="off" ref={el => this.state.refMemberID = el}/></td> </tr>
-            
+         <tr><td> New UserName  </td><td> <input type="text" defaultValue="" autoComplete="off" id="usernameNewUsername" autoComplete="off"  ref={el => this.state.refNewUsername = el}/></td><td></td></tr>  
            <tr><td> New Password  </td><td> <input type={this.state.showPassword?'text':'password'} defaultValue="" autoComplete="off" id="passwordNewPassword" autoComplete="off"  ref={el => this.state.refNewPassword = el}/></td><td>{this.state.showPassword?<span onClick={this.toggleIcon}><EyeInvisibleOutlined/></span>:<span onClick={this.toggleIcon}><EyeOutlined/></span>}</td></tr>
            </tbody>
            </table>

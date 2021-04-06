@@ -87,10 +87,12 @@ color: white;
     
   }
   .w2{
-    grid-column: span 3;
+    width: 630px;
+    grid-column: span 4;
     grid-row:  span 2;
   }
   .w3{
+    width: 475px;
     grid-column: span 3;
     grid-row:  span 2;
   }
@@ -132,7 +134,7 @@ color: white;
 }
   .w10{
     grid-column: span 2;
-    grid-row:  span 2;
+    grid-row:  span 3;
   }
 
  .w11{

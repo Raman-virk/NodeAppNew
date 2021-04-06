@@ -44,13 +44,13 @@ class Pic2 extends Component {
           </div>
           </div>
 
-          <div className="gallery-container w6">
+          {/* <div className="gallery-container w6">
             <div className="gallery-item">
               <div className="image">
           <img src={Good} height="100" width="100"></img>
           </div>
           </div>
-          </div>
+          </div> */}
 
           <div className="gallery-container w4">
             <div className="gallery-item">
@@ -63,13 +63,13 @@ class Pic2 extends Component {
 
      
 
-          <div className="gallery-container w15">
+          {/* <div className="gallery-container w15">
             <div className="gallery-item">
               <div className="image">
           <img src={Que} height="100" width="100"></img>
           </div>
           </div>
-          </div>
+          </div> */}
 
           <div className="gallery-container w9">
             <div className="gallery-item">
@@ -113,13 +113,13 @@ class Pic2 extends Component {
           </div>
           </div> */}
 
-          <div className="gallery-container w8">
+          {/* <div className="gallery-container w8">
             <div className="gallery-item">
               <div className="image">
                 <img src={Bad} height="100" width="100"></img>
               </div>
               </div>
-              </div>
+              </div> */}
 
              <div className="gallery-container w12">
             <div className="gallery-item">

@@ -114,7 +114,7 @@ showMainPage: true
             </tbody>
             </table>
             <br/>
-            <div className="hoverClass" onClick={this.forgotPassword}><u>Forgot Password?</u></div>
+            <div className="hoverClass" onClick={this.forgotPassword}><u>Forgot Username/Password?</u></div>
             <br/>
             <button type="button"  style={{backgroundColor:'green',height:'50px',width:'80%'}} id="login" onClick={this.login}>LOGIN</button><br/>
             <button type="button"  style={{backgroundColor:'blue',height:'50px',width:'80%'}} id="reset" onClick={this.ResetLogin}>RESET</button>

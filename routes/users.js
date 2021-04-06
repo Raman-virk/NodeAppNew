@@ -63,6 +63,7 @@ router.route('/updatePassword').post((req,res)=>{
     User.findById(id)
     .then(user => {
         user.Password = req.body.newpassword;
+        user.UserName = req.body.newusername;
         user.save()
         .then(()=> res.json('User  updated'))
         .catch(err => res.send('Error: '+err))
