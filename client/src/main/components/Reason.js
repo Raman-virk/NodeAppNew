@@ -6,8 +6,11 @@ import Seven from './SevenPage';
 import Eight from './EightPage';
 import Nine from './NinePage';
 import Ten from './TenthPage';
+import Eleven from './Eleven';
 import Reviews from './Reviews';
 import axios from "axios";
+import TwelvePage from "./Twelve";
+import Thirteen from "./Thirteen";
 
 
 class Reason extends Component {
@@ -146,6 +149,9 @@ class Reason extends Component {
               case "EightPage": return <Eight />;
               case "NinePage":  return <Nine />;
               case "TenthPage":  return <Ten />;
+              case "Eleven": return <Eleven/>;
+              case "Twelve":return <TwelvePage/>;
+              case "Thirteen" : return <Thirteen/>;
       
               default:      return <span></span>
             }}
@@ -183,8 +189,8 @@ class Reason extends Component {
             
             <div style={{color:'black',textAlign:'left',marginLeft:'20px' , backgroundColor:'gray'}}><b>Reason :</b></div><div><textarea rows="15" cols="150" id="reasonArea"></textarea></div>
             <center>
-            <button type="button"  style={{backgroundColor:'green',height:'50px',width:'80%'}} id="submitReason" onClick={this.SaveReview}>SUBMIT</button><br/>
-            <button type="button"  style={{backgroundColor:'blue',height:'50px',width:'80%'}} id="resetReason" onClick={this.ResetReview}>RESET</button>
+            <button type="button"  style={{backgroundColor:'green',height:'50px',width:'80%',fontWeight:'bold'}} id="submitReason" onClick={this.SaveReview}>SUBMIT</button><br/>
+            <button type="button"  style={{backgroundColor:'blue',height:'50px',width:'80%',fontWeight:'bold'}} id="resetReason" onClick={this.ResetReview}>RESET</button>
             </center>
             <br/>
            </div></div>:
