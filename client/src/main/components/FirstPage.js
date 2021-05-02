@@ -6,6 +6,7 @@ import SecondPage from './SecondPage';
 import ThirdPage from './ThirdPage';
 import FourthPage from './FourthPage';
 import Login from './Login';
+import FrontPage from './FrontPage';
 
 class firstPage extends React.Component{
 
@@ -13,22 +14,31 @@ class firstPage extends React.Component{
     showSecondPage:false,
     showThirdPage:false,
     showFourthPage:false,
+    showFrontPage:false,
     showFirstPage:true,
   }
   getSecondPage = (event) =>{
-    this.setState({showFirstPage:false,showSecondPage:true});
+    this.setState({showFirstPage:false,showThirdPage:false,showFourthPage:false,showFrontPage:false, showSecondPage:true});
   }
   getThirdPage = (event) =>{
-    this.setState({showFirstPage:false,showThirdPage:true});
+    this.setState({showFirstPage:false,showSecondPage:false,showFourthPage:false,showFrontPage:false, showThirdPage:true});
   }
   getFourthPage = (event) =>{
-    this.setState({showFirstPage:false,showFourthPage:true});
+    this.setState({showFirstPage:false,showSecondPage:false,showThirdPage:false,showFrontPage:false,showFourthPage:true});
   }
+
+  getFrontPage = (event) =>{
+    this.setState({showFirstPage:false,showSecondPage:false,showThirdPage:false,showFourthPage:false,showFrontPage:true});
+  }
+  
   render(){
   return(
     <div>
       {this.state.showFirstPage?
   <div id="FirstPage">
+    <span>
+    <div style={{float:'left', marginLeft:'20px'}} > <button className="btn btn-lg btn-primary m-2" onClick={this.getFrontPage}>HOME</button></div>
+    </span>
     <span>
       <Pic2 />
     </span>
@@ -43,6 +53,7 @@ class firstPage extends React.Component{
       {this.state.showSecondPage?<SecondPage/>:<span></span>}
       {this.state.showThirdPage?<ThirdPage/>:<span></span>}
       {this.state.showFourthPage?<Login/>:<span></span>}
+      {this.state.showFrontPage?<FrontPage/>:<span></span>}
     </div>
   </div>
   )
