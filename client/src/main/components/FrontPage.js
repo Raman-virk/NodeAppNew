@@ -56,23 +56,23 @@ class FrontPage extends React.Component{
     <table width='100%' style={{marginTop:'1%',borderCollapse:'separate',borderSpacing:'120px 30px',color:'black',fontWeight:'bold'}}>
         <tbody>
             <tr style={{border:'1px solid black'}}>
-                <td height='100px' style={{textAlign:'center',height:'40px'}}><span style={{fontSize:'35px'}}><input type='button' value='Mission Statement' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black'}}/></span></td>
-                <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>"Our objective is to be the voice of all seniors over 55 of age living in <br/>the community of East Village.Our mission is to communicate with the <br/>leaders of our community and governments, expressing our concerns <br/>and showing support on issues related to all seniors quality of life" </span></td>
+                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Mission Statement' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black', textAlign:'center'}}/></span></td>
+                <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>"Our objective is to be the voice of all seniors over 55 of age living in the community of East Village.Our mission is to communicate with the leaders of our community and governments, expressing our concerns and showing support on issues related to all seniors quality of life" </span></td>
             </tr>
             <tr style={{border:'1px solid black'}}>
-                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px'}}><input type='button' value='News' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black'}} onClick={this.getBlankPage}/></span></td>
+                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='News' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getBlankPage}/></span></td>
                 <td style={{textAlign:'left'}}><span  style={{fontSize:'large'}}>Local, Provincial and National News that affects seniors in Calgary</span></td>
             </tr>
             <tr style={{border:'1px solid black'}}>
-                <td height='100px'style={{textAlign:'center'}}><span style={{fontSize:'35px'}}><input type='button' value='Coming Events' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black'}} onClick={this.getBlankPage}/></span></td>
+                <td height='100px'style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Coming Events' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getBlankPage}/></span></td>
                 <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Coming Events in the East village and Calgary for Seniors</span></td>
             </tr>
             <tr style={{border:'1px solid black'}}>
-                <td  height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px'}}><input type='button' value='Consumer Centre' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black'}} onClick={this.getFirstPage}/></span></td>
-                <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Consumer Awareness Centre where Seniors can write about their <br/>shopping experiences and give businesses a thumbs up <br/>or thumbs down</span></td>
+                <td  height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Consumer Centre' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getFirstPage}/></span></td>
+                <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Consumer Awareness Centre where Seniors can write about their shopping experiences and give businesses a thumbs up or thumbs down</span></td>
             </tr>
             <tr style={{border:'1px solid black'}}>
-                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px'}}><input type='button' value='Archive' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black'}} onClick={this.getBlankPage}/></span></td>
+                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Archive' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getBlankPage}/></span></td>
                 <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Past minutes of EVSA Meetings and highlights of social events in <br/>the East Village</span></td>
             </tr>
         </tbody>
