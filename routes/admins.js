@@ -2,8 +2,8 @@ const router = require('express').Router();
 let AdminUser = require('../Models/Admin');
 
 router.route('/getAdminUser').post((req,res)=>{
-    const UserName = req.body.username;
-    const Password = req.body.password;
+    const username = req.body.UserName;
+    const password = req.body.Password;
     console.log('here');
     AdminUser.find({UserName:username, Password:password})
     .then((admins)=> res.send(admins))
