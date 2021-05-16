@@ -14,7 +14,8 @@ class EventsPage extends React.Component{
         verified:false,
         edit:false,
         eventList:'',
-        loginMsg:''
+        loginMsg:'',
+        eventValue:''
     }
 
     componentDidMount(){
@@ -46,8 +47,7 @@ class EventsPage extends React.Component{
             document.getElementById('adminuser').value='';
             document.getElementById('adminpass').value='';
             if(res.data.length==1){
-        this.setState({verified:true,loginMsg:''},()=>{
-             
+        this.setState({verified:true,loginMsg:''},()=>{           
         });
             }else{
         this.setState({loginMsg:'Not Authorized!',verified:false},()=>{ 
@@ -57,12 +57,15 @@ class EventsPage extends React.Component{
     }
 
     saveEvents = async() =>{
-        let events = document.getElementById('EventArea').value;
+        let events = this.state.eventValue;
         let response =  await axios.post('/details/updateDetail',{Name:'Events', Value:events});
             console.log(response.data);
     }
     editPage = () =>{
         this.setState({edit:true});  
+    }
+    changeEvent=(event)=>{
+        this.setState({eventValue:event.target.value});
     }
     
     render(){
@@ -78,7 +81,7 @@ class EventsPage extends React.Component{
                   <img src={eastlogo} className="rounded mx-auto d-block" alt="..." height="100" width="50%"></img>
                   <br/>
                   <h1> East Village Events</h1>
-                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} disabled={!this.state.verified} autoSize={true} id='EventArea'></TextArea>
+                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} defaultValue={this.state.eventList} autoSize={true} onChange={this.changeEvent}></TextArea>
                 </div>
                 </center>
                 </div>

@@ -77,7 +77,7 @@ class ArchievePage extends React.Component{
                   <img src={eastlogo} className="rounded mx-auto d-block" alt="..." height="100" width="50%"></img>
                   <br/>
                   <h1> East Village Archieve</h1>
-                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} disabled={!this.state.verified} autoSize={true} id='ArchieveArea'></TextArea>
+                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} defaultValue={this.state.ArchieveList} disabled={!this.state.verified} autoSize={true} id='ArchieveArea'></TextArea>
                 </div>
                 </center>
                 </div>
