@@ -26,6 +26,12 @@ app.use('/users',usersRouter);
 const reviewsRouter = require('./routes/reviews');
 app.use('/reviews',reviewsRouter);
 
+const detailRouter = require('./routes/details');
+app.use('/details',detailRouter);
+
+const adminRouter = require('./routes/admins');
+app.use('/admins',adminRouter);
+
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
