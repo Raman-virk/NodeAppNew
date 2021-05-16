@@ -28,9 +28,10 @@ class ArchievePage extends React.Component{
                         console.log(this.state.ArchieveList);
                     })    
                 }
+                this.setState({showFrontPage:false,showArchievePage:true,loginMsg:''}) 
                
             })
-        this.setState({showFrontPage:false,showArchievePage:true,loginMsg:''}) 
+       
        }
 
     getFrontPage=()=>{

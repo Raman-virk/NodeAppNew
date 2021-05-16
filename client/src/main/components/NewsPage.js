@@ -27,9 +27,9 @@ class NewsPage extends React.Component{
                         console.log(this.state.newsList);
                     })    
                 }
-               
+                this.setState({showFrontPage:false,showNewsPage:true,loginMsg:''}) 
             })
-        this.setState({showFrontPage:false,showNewsPage:true,loginMsg:''}) 
+        
        }
 
     getFrontPage=()=>{

@@ -38,6 +38,12 @@ router.route('/updateDetail').post((req,res)=>{
         .then(()=> res.json('Detail  updated'))
         .catch(err => res.send('Error: '+err))
     })
+        }else{
+            const newDetail = new Detail({Name,Value});
+            console.log('when detail is added');
+            newDetail.save()
+             .then(() => res.send('Detail added!'))
+             .catch(err => res.send('Error: '+err))   
         }
     });
 });

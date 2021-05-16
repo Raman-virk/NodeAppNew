@@ -27,9 +27,10 @@ class EventsPage extends React.Component{
                         console.log(this.state.eventList);
                     })    
                 }
+                this.setState({showFrontPage:false,showEventPage:true,loginMsg:''}) 
                 
             })
-        this.setState({showFrontPage:false,showEventPage:true,loginMsg:''}) 
+   
            
        }
 
