@@ -22,9 +22,12 @@ class EventsPage extends React.Component{
             window.scroll(0,0);
             axios.post('/details/getDetail',{Name:'Events'})
             .then((response)=>{
-                this.setState({eventList:response.data,edit:false,verified:false},()=>{
-                    console.log(this.state.eventList);
-                })
+                if(response.data.length>0){
+                    this.setState({eventList:response.data[0].Value,edit:false,verified:false},()=>{
+                        console.log(this.state.eventList);
+                    })    
+                }
+                
             })
         this.setState({showFrontPage:false,showEventPage:true,loginMsg:''}) 
            
@@ -54,7 +57,7 @@ class EventsPage extends React.Component{
 
     saveEvents = async() =>{
         let events = document.getElementById('EventArea').value;
-        let response =  await axios.post('/details/addDetail',{Name:'Events', Value:events});
+        let response =  await axios.post('/details/updateDetail',{Name:'Events', Value:events});
             console.log(response.data);
     }
     editPage = () =>{

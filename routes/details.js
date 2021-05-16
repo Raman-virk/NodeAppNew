@@ -23,4 +23,24 @@ router.route('/getDetail').post((req,res)=>{
     .catch(err => res.send('Error: '+err))
 });
 
+router.route('/updateDetail').post((req,res)=>{
+    const Name= req.body.Name;
+    const Value = req.body.Value;
+    Detail.find({Name:Name})
+    .then((details)=>{
+        if(details.length>0){
+     let id = details[0].id;
+     Detail.findById(id)
+    .then(detail => {
+        detail.Name = Name;
+        detail.Value = Value;
+        detail.save()
+        .then(()=> res.json('Detail  updated'))
+        .catch(err => res.send('Error: '+err))
+    })
+        }
+    });
+});
+
+
 module.exports = router;

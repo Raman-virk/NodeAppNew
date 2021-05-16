@@ -22,9 +22,12 @@ class NewsPage extends React.Component{
             window.scroll(0,0);
             axios.post('/details/getDetail',{Name:'News'})
             .then((response)=>{
-                this.setState({newsList:response.data,edit:false,verified:false},()=>{
-                    console.log(this.state.newsList);
-                })
+                if(response.data.length>0){
+                    this.setState({newsList:response.data[0].Value,edit:false,verified:false},()=>{
+                        console.log(this.state.newsList);
+                    })    
+                }
+               
             })
         this.setState({showFrontPage:false,showNewsPage:true,loginMsg:''}) 
        }
@@ -54,7 +57,7 @@ class NewsPage extends React.Component{
 
     saveNews = async() =>{
         let news = document.getElementById('NewsArea').value;
-        let response =  await axios.post('/details/addDetail',{Name:'News', Value:news});
+        let response =  await axios.post('/details/updateDetail',{Name:'News', Value:news});
             console.log(response.data);
     }
     editPage = () =>{
@@ -74,7 +77,7 @@ class NewsPage extends React.Component{
                   <img src={eastlogo} className="rounded mx-auto d-block" alt="..." height="100" width="50%"></img>
                   <br/>
                   <h1> East Village News</h1>
-                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} disabled={!this.state.verified} autoSize={true} id='NewsArea'></TextArea>
+                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} disabled={!this.state.verified} defaultValue={this.state.newsList} autoSize={true} id='NewsArea'></TextArea>
                 </div>
                 </center>
                 </div>

@@ -20,16 +20,17 @@ class ArchievePage extends React.Component{
     componentDidMount(){
         console.log(this.props.user);
             window.scroll(0,0);
-            axios.post('/admins/addAdminUsers',{UserName:'evsasenioradmin',Password:'adminpass1234@'})
-            .then((res)=>{
+           
             axios.post('/details/getDetail',{Name:'Archieve'})
             .then((response)=>{
-                this.setState({ArchieveList:response.data,edit:false,verified:false},()=>{
-                    console.log(this.state.ArchieveList);
-                })
+                if(response.data.length>0){
+                    this.setState({ArchieveList:response.data[0].Value,edit:false,verified:false},()=>{
+                        console.log(this.state.ArchieveList);
+                    })    
+                }
+               
             })
         this.setState({showFrontPage:false,showArchievePage:true,loginMsg:''}) 
-            });
        }
 
     getFrontPage=()=>{
@@ -55,7 +56,7 @@ class ArchievePage extends React.Component{
 
     saveArchieve = async() =>{
         let Archieve = document.getElementById('ArchieveArea').value;
-        let response =  await axios.post('/details/addDetail',{Name:'Archieve', Value:Archieve});
+        let response =  await axios.post('/details/updateDetail',{Name:'Archieve', Value:Archieve});
             console.log(response.data);
     }
     editPage = () =>{
