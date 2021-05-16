@@ -5,30 +5,39 @@ import SubSub from '../assets/front/FrontSubtitle.png';
 import Image from '../assets/front/EVSA_front.png'
 import evsaPic from '../assets/front/EVSA_pic.png'
 import FirstPage from './FirstPage';
-import BlankPage from './BlankPage';
+import NewsPage from './NewsPage';
+import EventPage from './EventPage';
+import ArchievePage from './ArchievePage';
 
 
 class FrontPage extends React.Component{
     state={
         showFrontpage:true,
         showFirstPage:false,
-        showBlankPage:false,
+        showNewsPage:false,
+        showEventPage:false,
+        showArchievePage:false
     }
     componentDidMount(){
-     this.setState({showFrontPage:true,showFirstPage:false,showBlankPage:false}) 
+     this.setState({showFrontPage:true,showFirstPage:false,showNewsPage:false}) 
     }
 
     getFirstPage = (event) =>{
-        this.setState({showFrontPage:false,showBlankPage:false,showFirstPage:true});
+        this.setState({showFrontPage:false,showNewsPage:false,showEventPage:false,showArchievePage:false,showFirstPage:true});
     }
 
-    getBlankPage = (event) =>{
-        this.setState({showFrontPage:false,showFirstPage:false,showBlankPage:true});
+    getNewsPage = (event) =>{
+        this.setState({showFrontPage:false,showFirstPage:false,showEventPage:false,showArchievePage:false,showNewsPage:true});
+    }
+
+    getEventPage=(event)=>{
+        this.setState({showFrontPage:false,showFirstPage:false,showArchievePage:false,showNewsPage:false,showEventPage:true});
+    }
+
+    getArchievePage = (event) =>{
+        this.setState({showFrontPage:false,showFirstPage:false,showNewsPage:false,showEventPage:false,showArchievePage:true});  
     }
     render(){
-        
-      
-
         return(
             <div>
                  {this.state.showFrontPage?
@@ -60,11 +69,11 @@ class FrontPage extends React.Component{
                 <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>"Our objective is to be the voice of all seniors over 55 of age living in the community of East Village.Our mission is to communicate with the leaders of our community and governments, expressing our concerns and showing support on issues related to all seniors quality of life" </span></td>
             </tr>
             <tr style={{border:'1px solid black'}}>
-                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='News' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getBlankPage}/></span></td>
+                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='News' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getNewsPage}/></span></td>
                 <td style={{textAlign:'left'}}><span  style={{fontSize:'large'}}>Local, Provincial and National News that affects seniors in Calgary</span></td>
             </tr>
             <tr style={{border:'1px solid black'}}>
-                <td height='100px'style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Coming Events' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getBlankPage}/></span></td>
+                <td height='100px'style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Coming Events' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getEventPage}/></span></td>
                 <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Coming Events in the East village and Calgary for Seniors</span></td>
             </tr>
             <tr style={{border:'1px solid black'}}>
@@ -72,7 +81,7 @@ class FrontPage extends React.Component{
                 <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Consumer Awareness Centre where Seniors can write about their shopping experiences and give businesses a thumbs up or thumbs down</span></td>
             </tr>
             <tr style={{border:'1px solid black'}}>
-                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Archive' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getBlankPage}/></span></td>
+                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Archive' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getArchievePage}/></span></td>
                 <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Past minutes of EVSA Meetings and highlights of social events in <br/>the East Village</span></td>
             </tr>
         </tbody>
@@ -83,7 +92,9 @@ class FrontPage extends React.Component{
 </div>:<span></span>}
     <div>
       {this.state.showFirstPage?<FirstPage/>:<span></span>}
-      {this.state.showBlankPage?<BlankPage/>:<span></span>}
+      {this.state.showNewsPage?<NewsPage/>:<span></span>}
+      {this.state.showEventPage?<EventPage/>:<span></span>}
+      {this.state.showArchievePage?<ArchievePage/>:<span></span>}
     </div>
     </div>
 
@@ -91,5 +102,6 @@ class FrontPage extends React.Component{
     }
 
 }
+
 
 export default FrontPage;

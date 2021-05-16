@@ -4,7 +4,6 @@ import React from "react";
 import Header from "../components/header/header.js";
 import { Layout } from "antd";
 import FirstPage from "../components/FirstPage";
-import BlankPage from "../components/BlankPage";
 import FrontPage from "../components/FrontPage.js";
 const { Content } = Layout;
 
