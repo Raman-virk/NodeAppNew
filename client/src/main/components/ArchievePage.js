@@ -41,15 +41,13 @@ class ArchievePage extends React.Component{
         let pass = document.getElementById('adminpass').value;
         axios.post('/admins/getAdminUser',{UserName:user,Password:pass})
         .then((res)=>{
-            if(res.data.length==1){
-        this.setState({verified:true,loginMsg:''},()=>{
             document.getElementById('adminuser').value='';
-            document.getElementById('adminpass').value='';  
+            document.getElementById('adminpass').value='';
+            if(res.data.length==1){
+        this.setState({verified:true,loginMsg:''},()=>{  
         });
             }else{
         this.setState({loginMsg:'Not Authorized!',verified:false},()=>{
-            document.getElementById('adminuser').value='';
-            document.getElementById('adminpass').value='';  
         });
             }
         });
