@@ -13,21 +13,28 @@ class NewsPage extends React.Component{
         showNewsPage:true,
         verified:false,
         edit:false,
-        newsList:'',
-        loginMsg:''
+        newsList:'LOADING...',
+        loginMsg:'',
+        check:'ghjnjf',
+        key:0,
     }
 
     componentDidMount(){
-        console.log(this.props.user);
             window.scroll(0,0);
             axios.post('/details/getDetail',{Name:'News'})
             .then((response)=>{
                 if(response.data.length>0){
                     this.setState({newsList:response.data[0].Value,edit:false,verified:false},()=>{
-                        console.log(this.state.newsList);
+                        this.setState({showFrontPage:false,showNewsPage:true,loginMsg:'',key:1},()=>{
+                        });
+                       
                     })    
+                }else{
+                    this.setState({newsList:'',showFrontPage:false,showNewsPage:true,loginMsg:'',key:1},()=>{
+                        console.log(this.state.newsList);
+                    }) 
                 }
-                this.setState({showFrontPage:false,showNewsPage:true,loginMsg:''}) 
+                
             })
         
        }
@@ -77,7 +84,7 @@ class NewsPage extends React.Component{
                   <img src={eastlogo} className="rounded mx-auto d-block" alt="..." height="100" width="50%"></img>
                   <br/>
                   <h1> East Village News</h1>
-                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} disabled={!this.state.verified} defaultValue={this.state.newsList} autoSize={true} id='NewsArea'></TextArea>
+                  <TextArea key={this.state.key} style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px',color:'black'}} disabled={!this.state.verified} defaultValue={this.state.newsList} autoSize={true} id='NewsArea'/>
                 </div>
                 </center>
                 </div>
