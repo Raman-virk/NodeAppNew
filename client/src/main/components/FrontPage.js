@@ -8,6 +8,7 @@ import FirstPage from './FirstPage';
 import NewsPage from './NewsPage';
 import EventPage from './EventPage';
 import ArchievePage from './ArchievePage';
+import ContactPage from "./ContactList";
 
 
 class FrontPage extends React.Component{
@@ -16,26 +17,31 @@ class FrontPage extends React.Component{
         showFirstPage:false,
         showNewsPage:false,
         showEventPage:false,
-        showArchievePage:false
+        showArchievePage:false,
+        showContactPage:false
     }
     componentDidMount(){
-     this.setState({showFrontPage:true,showFirstPage:false,showNewsPage:false}) 
+     this.setState({showContactPage:false,showFrontPage:true,showFirstPage:false,showNewsPage:false}) 
     }
 
     getFirstPage = (event) =>{
-        this.setState({showFrontPage:false,showNewsPage:false,showEventPage:false,showArchievePage:false,showFirstPage:true});
+        this.setState({showContactPage:false,showFrontPage:false,showNewsPage:false,showEventPage:false,showArchievePage:false,showFirstPage:true});
     }
 
     getNewsPage = (event) =>{
-        this.setState({showFrontPage:false,showFirstPage:false,showEventPage:false,showArchievePage:false,showNewsPage:true});
+        this.setState({showContactPage:false,showFrontPage:false,showFirstPage:false,showEventPage:false,showArchievePage:false,showNewsPage:true});
     }
 
     getEventPage=(event)=>{
-        this.setState({showFrontPage:false,showFirstPage:false,showArchievePage:false,showNewsPage:false,showEventPage:true});
+        this.setState({showContactPage:false,showFrontPage:false,showFirstPage:false,showArchievePage:false,showNewsPage:false,showEventPage:true});
     }
 
     getArchievePage = (event) =>{
-        this.setState({showFrontPage:false,showFirstPage:false,showNewsPage:false,showEventPage:false,showArchievePage:true});  
+        this.setState({showContactPage:false,showFrontPage:false,showFirstPage:false,showNewsPage:false,showEventPage:false,showArchievePage:true});  
+    }
+
+    getContactPage = (event) =>{
+        this.setState({showFrontPage:false,showFirstPage:false,showNewsPage:false,showEventPage:false,showArchievePage:false,showContactPage:true});  
     }
     render(){
         return(
@@ -82,10 +88,15 @@ class FrontPage extends React.Component{
             </tr>
             <tr style={{border:'1px solid black'}}>
                 <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Archive' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getArchievePage}/></span></td>
-                <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Past minutes of EVSA Meetings and highlights of social events in <br/>the East Village</span></td>
+                <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>Past minutes of EVSA Meetings and highlights of social events in the East Village</span></td>
+            </tr>
+            <tr style={{border:'1px solid black'}}>
+                <td height='100px' style={{textAlign:'center'}}><span style={{fontSize:'35px',textAlign:'center'}}><input type='button' value='Contact' style={{height:'100%',width:'100%',backgroundColor:'#008CBA',borderRadius: '12px',border:'4px solid black',textAlign:'center'}} onClick={this.getContactPage}/></span></td>
+                <td style={{textAlign:'left'}}><span style={{fontSize:'large'}}>List of EVSA Board Members and EVSA Contact Information.</span></td>
             </tr>
         </tbody>
     </table>
+    <div style={{backgroundColor:'gray',fontWeight:'bold',float:'right'}}><div>Website designed By:</div><div> Raman Virk<br/>Email- harman.virk651@gmail.com</div></div>
   
 </div>
 </div>
@@ -95,6 +106,7 @@ class FrontPage extends React.Component{
       {this.state.showNewsPage?<NewsPage/>:<span></span>}
       {this.state.showEventPage?<EventPage/>:<span></span>}
       {this.state.showArchievePage?<ArchievePage/>:<span></span>}
+      {this.state.showContactPage?<ContactPage/>:<span></span>}
     </div>
     </div>
 
