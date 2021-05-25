@@ -15,7 +15,8 @@ class EventsPage extends React.Component{
         edit:false,
         eventList:'',
         loginMsg:'',
-        eventValue:''
+        eventValue:'',
+        key:0
     }
 
     componentDidMount(){
@@ -26,9 +27,12 @@ class EventsPage extends React.Component{
                 if(response.data.length>0){
                     this.setState({eventList:response.data[0].Value,edit:false,verified:false},()=>{
                         console.log(this.state.eventList);
+                        this.setState({showFrontPage:false,showEventPage:true,loginMsg:'',key:1}) 
                     })    
+                }else{
+                    this.setState({eventList:'',showFrontPage:false,showEventPage:true,loginMsg:'',key:1}) 
                 }
-                this.setState({showFrontPage:false,showEventPage:true,loginMsg:''}) 
+                
                 
             })
    
@@ -81,7 +85,7 @@ class EventsPage extends React.Component{
                   <img src={eastlogo} className="rounded mx-auto d-block" alt="..." height="100" width="50%"></img>
                   <br/>
                   <h1> East Village Events</h1>
-                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} defaultValue={this.state.eventList} autoSize={true} onChange={this.changeEvent}></TextArea>
+                  <TextArea key={this.state.key} style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} defaultValue={this.state.eventList} autoSize={true} onChange={this.changeEvent}></TextArea>
                 </div>
                 </center>
                 </div>

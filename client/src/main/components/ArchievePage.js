@@ -14,7 +14,8 @@ class ArchievePage extends React.Component{
         verified:false,
         edit:false,
         ArchieveList:'',
-        loginMsg:''
+        loginMsg:'',
+        key:0
     }
 
     componentDidMount(){
@@ -26,9 +27,12 @@ class ArchievePage extends React.Component{
                 if(response.data.length>0){
                     this.setState({ArchieveList:response.data[0].Value,edit:false,verified:false},()=>{
                         console.log(this.state.ArchieveList);
+                        this.setState({showFrontPage:false,showArchievePage:true,loginMsg:'',key:1}) 
                     })    
+                }else{
+                    this.setState({ArchieveList:'', showFrontPage:false,showArchievePage:true,loginMsg:'',key:1}) 
                 }
-                this.setState({showFrontPage:false,showArchievePage:true,loginMsg:''}) 
+               
                
             })
        
@@ -77,7 +81,7 @@ class ArchievePage extends React.Component{
                   <img src={eastlogo} className="rounded mx-auto d-block" alt="..." height="100" width="50%"></img>
                   <br/>
                   <h1> East Village Archieve</h1>
-                  <TextArea style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} defaultValue={this.state.ArchieveList} disabled={!this.state.verified} autoSize={true} id='ArchieveArea'></TextArea>
+                  <TextArea key={this.state.key} style={{width:'100%',height:'100%',fontWeight:'bold',minHeight:'500px'}} defaultValue={this.state.ArchieveList} disabled={!this.state.verified} autoSize={true} id='ArchieveArea'></TextArea>
                 </div>
                 </center>
                 </div>
